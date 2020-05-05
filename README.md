@@ -1,24 +1,26 @@
-# README
+# An easy to use/install and run SAML Service Provider server in Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## How to use this server right away:
+1. git@github.com:heridev/saml_service_provider_in_rails.git
+2. cd saml_service_provider_in_rails
+3. bundle install
+4. rake db:create
+5. rake db:migrate
+6. rails s -b 'ssl://localhost:3000?key=newCertWithPasswordLocahostKey.key&cert=newCertWithPasswordLocahostCert.crt'
 
-* Ruby version
+NOTE: As we don't want to get errors with OpenSSL, we are running it with https and then in Chrome we can ignore that warning and proceed with the access to localhost
 
-* System dependencies
+As you can see I created those certificates using the following command:
+```
+openssl req -x509 -sha256 -nodes -days 3650 -passout pass:foobar -newkey rsa:2048 -keyout newCertWithPasswordLocahostKey.key -out newCertWithPasswordLocahostCert.crt
+```
 
-* Configuration
+The passphrase is:
+```
+foobar
+```
 
-* Database creation
+This one is important, cause you will need this value when setting up your Identity Provider in Rails, here
+[I'll push it in a minute so you can have both parts working]
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
