@@ -1,8 +1,7 @@
-# An easy to use/install and run SAML Service Provider server in Ruby on Rails
-
+# An easy to use/install and run SAML Service Provider server in Ruby on Rails 6
 
 ## How to use this server right away:
-1. git@github.com:heridev/saml_service_provider_in_rails.git
+1. git clone git@github.com:heridev/saml_service_provider_in_rails.git
 2. cd saml_service_provider_in_rails
 3. bundle install
 4. rake db:create
