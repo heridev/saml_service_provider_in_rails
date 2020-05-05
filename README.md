@@ -8,6 +8,13 @@
 5. rake db:migrate
 6. rails s -b 'ssl://localhost:3000?key=newCertWithPasswordLocahostKey.key&cert=newCertWithPasswordLocahostCert.crt'
 
+Now you can visit the URL
+```
+https://localhost:3000/users/saml/sign_in
+```
+
+That will generate the `SAMLRequest` token and it will redirect you to the Identity Provider (IdP) Server as you need to logged-in first in order to access any Service Provider resources (I'll be sharing the Identity Provider server on Rails as well, so you can get the entire workflow working :))
+
 NOTE: As we don't want to get errors with OpenSSL, we are running it with https and then in Chrome we can ignore that warning and proceed with the access to localhost
 
 As you can see I created those certificates using the following command:
