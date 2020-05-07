@@ -10,7 +10,7 @@ module Saml
       # In the case you support multiple providers
       # you can make this SamlSettings module dynamic
       # same as in the Saml::AuthController#create method
-      saml_config = SamlServiceProvider::SamlSettings.values
+      saml_config = ::SamlServiceProvider::SamlSettings.values
 
       action = request.create(saml_config, extra_params)
       redirect_to action
