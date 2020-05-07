@@ -3,19 +3,20 @@ module Saml
     # Here is where the Service Provider
     # can share specific resources with us
     def create
-      response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
+      saml_response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
 
       # In the case you support multiple providers
       # you can make this SamlSettings module dynamic
       # same as in the DecoratedSamlSessionsController#new method
-      response.settings = SamlServiceProvider::SamlSettings.values
+      saml_response.settings = SamlServiceProvider::SamlSettings.values
 
-      if response.is_valid?
+      if saml_response.is_valid?
         respond_to do |format|
           puts '============== attributes sent by the Identity Provider ============================'
-          puts response.attributes.attributes
+          puts saml_response.attributes.attributes
+          puts "page_name from params #{params[:page_name]}"
           puts '============== attributes sent by the Identity Provider ============================'
-          format.html { render plain: 'Authenticated resource message from the Service Provider' }
+          format.html { render :create, layout: 'widgets' }
         end
       else
         respond_to do |format|
