@@ -43,3 +43,20 @@ The passphrase is:
 foobar
 ```
 
+## Saml settings for production/staging
+If you run this in development, you do not need to set any special values, but once you want to deploy this repository to staging/production you will need to set the following env variable:
+
+```
+ASSERTION_CONSUMER_SERVICE_URL
+ISSUER
+IDP_SSO_TARGET_URL
+```
+
+These are the default values:
+```
+saml_settings.assertion_consumer_service_url = 'https://localhost:3000/users/saml/auth'
+saml_settings.issuer = 'https://localhost:3000/users/saml/metadata'
+saml_settings.idp_sso_target_url = 'https://localhost:3030/idp/saml/auth'
+saml_settings.idp_cert_fingerprint = 'E4:FC:60:40:03:A2:33:9D:AA:9D:50:59:F2:04:F0:3C:88:62:3B:F1:EB:D8:4C:FF:9C:D1:93:07:03:F7:C9:74
+```
+
