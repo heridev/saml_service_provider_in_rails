@@ -16,7 +16,7 @@ And this is the architecture of both parts (Service Provider and Identity Provid
 
 Now you can visit the URL:
 ```
-https://localhost:3000/sp/saml/private_resource
+https://localhost:3030/sp/saml/private_resource
 ```
 
 At this point you will get an error after you are redirected to the URL:
